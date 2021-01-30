@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+
+    <ConstraintSet android:id="@+id/start">
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/iv_airplay"
+            android:layout_width="@dimen/iv_square_size"
+            android:layout_height="@dimen/iv_square_size"
+            motion:layout_constraintEnd_toStartOf="@id/iv_highlight"
+            motion:layout_constraintStart_toEndOf="@id/iv_signal"
+            motion:layout_constraintTop_toTopOf="@id/iv_wifi" />
+        <Constraint
+            android:id="@+id/iv_signal"
+            android:layout_width="@dimen/iv_square_size"
+            android:layout_height="@dimen/iv_square_size"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintEnd_toStartOf="@id/iv_airplay"
+            motion:layout_constraintStart_toEndOf="@id/iv_bluetooth"
+            motion:layout_constraintTop_toTopOf="@id/iv_wifi" />
+        <Constraint
+            android:id="@+id/view_container"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:alpha="0.3"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/iv_wifi"
+            android:layout_width="@dimen/iv_square_size"
+            android:layout_height="@dimen/iv_square_size"
+            motion:layout_constraintBottom_toBottomOf="@id/view_container"
+            motion:layout_constraintEnd_toStartOf="@id/iv_bluetooth"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/iv_tune"
+            android:layout_width="@dimen/iv_square_size"
+            android:layout_height="@dimen/iv_square_size"
+            android:alpha="0"
+            android:visibility="visible"
+            motion:layout_constraintBottom_toBottomOf="@id/view_container"
+            motion:layout_constraintEnd_toStartOf="@id/iv_screen_rotation"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/iv_airplay" />
+        <Constraint
+            android:id="@+id/iv_screen_rotation"
+            android:layout_width="@dimen/iv_square_size"
+            android:layout_height="@dimen/iv_square_size"
+            android:alpha="0"
+            android:visibility="visible"
+            motion:layout_constraintEnd_toStartOf="@id/iv_airplane_mode"
+            motion:layout_constraintStart_toEndOf="@id/iv_tune"
+            motion:layout_constraintTop_toTopOf="@id/iv_tune" />
+        <Constraint
+            android:id="@+id/iv_airplane_mode"
+            android:layout_width="@dimen/iv_square_size"
+            android:layout_height="@dimen/iv_square_size"
+            android:alpha="0"
+            android:visibility="visible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/iv_screen_rotation"
+            motion:layout_constraintTop_toTopOf="@id/iv_tune" />
+
+
+    </ConstraintSet>
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start">
+
+
+        <OnSwipe motion:touchAnchorSide="bottom" />
+        <KeyFrameSet>
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="pathRelative"
+                motion:motionTarget="@+id/iv_airplay"
+                motion:percentX="0.69"
+                motion:percentY="0.45" />
+
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="pathRelative"
+                motion:motionTarget="@+id/iv_highlight"
+                motion:percentX="0.5"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="pathRelative"
+                motion:motionTarget="@+id/iv_tv"
+                motion:percentX="0.2"
+                motion:percentY="0.4" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/iv_tune" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/iv_airplane_mode" />
+
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="40"
+                motion:motionTarget="@+id/iv_screen_rotation" />
+
+
+        </KeyFrameSet>
+    </Transition>
+
+</MotionScene>

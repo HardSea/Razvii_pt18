@@ -1,18 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/background_photo"
+    app:layoutDescription="@xml/activity_main_scene">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <View
+        android:id="@+id/view_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_container"
+        android:alpha="0.7"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv_wifi"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintBottom_toTopOf="@id/iv_airplay"
+        app:layout_constraintEnd_toStartOf="@id/iv_bluetooth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_wifi" />
+
+    <ImageView
+        android:id="@+id/iv_bluetooth"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toStartOf="@id/iv_signal"
+        app:layout_constraintStart_toEndOf="@id/iv_wifi"
+        app:layout_constraintTop_toTopOf="@id/iv_wifi"
+        app:srcCompat="@drawable/ic_bluetooth" />
+
+    <ImageView
+        android:id="@+id/iv_signal"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_bluetooth"
+        app:layout_constraintTop_toTopOf="@id/iv_wifi"
+        app:srcCompat="@drawable/ic_signal" />
+
+    <ImageView
+        android:id="@+id/iv_airplay"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintBottom_toTopOf="@id/iv_tune"
+        app:layout_constraintEnd_toStartOf="@id/iv_highlight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_wifi"
+        app:srcCompat="@drawable/ic_airplay" />
+
+    <ImageView
+        android:id="@+id/iv_highlight"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toStartOf="@id/iv_tv"
+        app:layout_constraintStart_toEndOf="@id/iv_airplay"
+        app:layout_constraintTop_toTopOf="@id/iv_airplay"
+        app:srcCompat="@drawable/ic_highlight" />
+
+    <ImageView
+        android:id="@+id/iv_tv"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_highlight"
+        app:layout_constraintTop_toTopOf="@id/iv_airplay"
+        app:srcCompat="@drawable/ic_tv" />
+
+    <ImageView
+        android:id="@+id/iv_tune"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintBottom_toBottomOf="@id/view_container"
+        app:layout_constraintEnd_toStartOf="@id/iv_screen_rotation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_airplay"
+        app:srcCompat="@drawable/ic_tune" />
+
+    <ImageView
+        android:id="@+id/iv_screen_rotation"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toStartOf="@id/iv_airplane_mode"
+        app:layout_constraintStart_toEndOf="@id/iv_tune"
+        app:layout_constraintTop_toTopOf="@id/iv_tune"
+        app:srcCompat="@drawable/ic_screen_rotation" />
+
+    <ImageView
+        android:id="@+id/iv_airplane_mode"
+        android:layout_width="@dimen/iv_square_size"
+        android:layout_height="@dimen/iv_square_size"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_screen_rotation"
+        app:layout_constraintTop_toTopOf="@id/iv_tune"
+        app:srcCompat="@drawable/ic_airplane_mode" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
